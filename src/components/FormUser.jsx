@@ -1,8 +1,9 @@
 import { useEffect } from "react"
 import { useForm } from "react-hook-form"
+import './style/FormUser.css'
 
 
-const FormUser = ({ createUser, userUpdate, updateUser, setUserUpdate }) => {
+const FormUser = ({ createUser, userUpdate, updateUser, setUserUpdate, setIsFormClose }) => {
 
 
     const { handleSubmit, register, reset } = useForm()
@@ -31,32 +32,44 @@ const FormUser = ({ createUser, userUpdate, updateUser, setUserUpdate }) => {
         })
     }
 
+    const handleClose = () => {
+        setIsFormClose(true)
+        reset({
+            email: '',
+            password: '',
+            first_name: '',
+            last_name: '',
+            birthday: ''
+        })
+        setUserUpdate()
+    }
+
     return (
-        <div onSubmit={handleSubmit(submit)}>
-            <form>
-                <label>
-                    <span>Email </span>
-                    <input {...register('email')} type="email" />
-                </label>
-                <label>
-                    <span>Password </span>
-                    <input {...register('password')} type="password" />
-                </label>
-                <label>
-                    <span>First name </span>
-                    <input {...register('first_name')} type="text" />
-                </label>
-                <label>
-                    <span>Last name </span>
-                    <input {...register('last_name')} type="text" />
-                </label>
-                <label>
-                    <span>Birthday </span>
-                    <input {...register('birthday')} type="date" />
-                </label>
-                <button>{userUpdate ? 'Update' : 'Create'}</button>
-            </form>
-        </div>
+        <form className="form" onSubmit={handleSubmit(submit)}>
+            <div className="form_x" onClick={handleClose}>x</div>
+            <h2 className="form_title">{userUpdate ? 'Update User' : 'create'}</h2>
+            <label className="form_label">
+                <span>Email </span>
+                <input {...register('email')} type="email" placeholder="user@gmail.com" />
+            </label>
+            <label className="form_label">
+                <span className="form_field_name">Password </span>
+                <input className="form_fiel" {...register('password')} type="password" placeholder="Password" />
+            </label>
+            <label className="form_label">
+                <span className="form_field_name">First name </span>
+                <input className="form_fiel"{...register('first_name')} type="text" placeholder="First name " />
+            </label>
+            <label className="form_label">
+                <span className="form_field_name">Last name </span>
+                <input className="form_fiel"{...register('last_name')} type="text" />
+            </label>
+            <label className="form_label">
+                <span className="form_field_name">Birthday </span>
+                <input className="form_fiel"{...register('birthday')} type="date" />
+            </label>
+            <button className="form_btn">{userUpdate ? 'Update' : 'Create'}</button>
+        </form>
     )
 }
 

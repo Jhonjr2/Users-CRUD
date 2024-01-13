@@ -7,7 +7,8 @@ import FormUser from './components/FormUser'
 function App() {
 
   const [userUpdate, setUserUpdate] = useState()
-  
+  const [isFormClose, setIsFormClose] = useState(true)
+
   const baseUrl = 'https://users-crud.academlo.tech'
   const [users, getUsers, createUser, deleteUser, updateUser] = useFetch(baseUrl)
 
@@ -15,18 +16,23 @@ function App() {
     getUsers()
   }, [])
 
-  console.log(users);
-  
+  const handleOpenForm = () => {
+    setIsFormClose(false)
+  }
 
   return (
     <div>
       <h2>Project4</h2>
-      <FormUser
-      createUser={createUser}
-      userUpdate={userUpdate}
-      updateUser={updateUser}
-      setUserUpdate={setUserUpdate}
-      />
+      <button onClick={handleOpenForm}>Open Form</button>
+      <div className={`form_container ${isFormClose && 'form_close'}`}>
+        <FormUser
+          createUser={createUser}
+          userUpdate={userUpdate}
+          updateUser={updateUser}
+          setUserUpdate={setUserUpdate}
+          setIsFormClose={setIsFormClose}
+        />
+      </div>
       <div>
         {
           users?.map(user => (
