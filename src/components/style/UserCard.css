@@ -8,6 +8,7 @@
     margin-top: 20px;
     margin-bottom: 20px;
     border-radius: 10px;
+    background-color: rgba(75, 92, 86, 0.038);
 }
 
 .user__name{
@@ -47,7 +48,7 @@
 
 .btn__delete{
 
-    background-color: orangered;
+    background-color: rgb(241, 50, 16);
     width: 40px;
     aspect-ratio: 1;
     border:none;

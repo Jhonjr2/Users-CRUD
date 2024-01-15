@@ -33,7 +33,7 @@ function App() {
     <div className='app'>
       <div className='app__header'>
         <h2 className='app_title'>Usuarios</h2>
-        <button className='app_btn' onClick={handleOpenForm}><span className='app_icon_mas'>+</span> Crear usuario</button>
+        <button className='app_btn' onClick={handleOpenForm}></button>
       </div>
       <div className={`app_confirmation__card ${isConfirmation && 'form_close'}`}>
       <ConfirmationCard

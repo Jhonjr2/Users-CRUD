@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: white;
+    background-color: rgb(253, 255, 253);
 }
 
 html {
@@ -37,8 +37,3 @@ img {
     display: block;
 }
 
-
-
-button {
-    max-width: 60px;
-}
