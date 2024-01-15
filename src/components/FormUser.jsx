@@ -30,6 +30,7 @@ const FormUser = ({ createUser, userUpdate, updateUser, setUserUpdate, setIsForm
             last_name: '',
             birthday: ''
         })
+        setIsFormClose(true)
     }
 
     const handleClose = () => {
@@ -47,10 +48,10 @@ const FormUser = ({ createUser, userUpdate, updateUser, setUserUpdate, setIsForm
     return (
         <form className="form" onSubmit={handleSubmit(submit)}>
             <div className="form_x" onClick={handleClose}>x</div>
-            <h2 className="form_title">{userUpdate ? 'Update User' : 'create'}</h2>
+            <h2 className="form_title">{userUpdate ? 'Update User' : 'Create'}</h2>
             <label className="form_label">
-                <span>Email </span>
-                <input {...register('email')} type="email" placeholder="user@gmail.com" />
+                <span className="form_field_name">Email </span>
+                <input className="form_fiel" {...register('email')} type="email" placeholder="user@gmail.com" />
             </label>
             <label className="form_label">
                 <span className="form_field_name">Password </span>
@@ -62,7 +63,7 @@ const FormUser = ({ createUser, userUpdate, updateUser, setUserUpdate, setIsForm
             </label>
             <label className="form_label">
                 <span className="form_field_name">Last name </span>
-                <input className="form_fiel"{...register('last_name')} type="text" />
+                <input className="form_fiel"{...register('last_name')} type="text" placeholder="Last name " />
             </label>
             <label className="form_label">
                 <span className="form_field_name">Birthday </span>

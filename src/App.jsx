@@ -3,11 +3,14 @@ import './App.css'
 import useFetch from './hooks/useFetch'
 import UserCard from './components/UserCard'
 import FormUser from './components/FormUser'
+import ConfirmationCard from './components/ConfirmationCard'
 
 function App() {
 
   const [userUpdate, setUserUpdate] = useState()
   const [isFormClose, setIsFormClose] = useState(true)
+  const [isConfirmation, setIsConfirmation]= useState(true)
+  const [userDelete, setUserDelete]=useState('')
 
   const baseUrl = 'https://users-crud.academlo.tech'
   const [users, getUsers, createUser, deleteUser, updateUser] = useFetch(baseUrl)
@@ -20,10 +23,25 @@ function App() {
     setIsFormClose(false)
   }
 
+  const handleClickclose = () => {
+    setIsFormClose(true)
+  }
+
+
+
   return (
-    <div>
-      <h2>Project4</h2>
-      <button onClick={handleOpenForm}>Open Form</button>
+    <div className='app'>
+      <div className='app__header'>
+        <h2 className='app_title'>Usuarios</h2>
+        <button className='app_btn' onClick={handleOpenForm}><span className='app_icon_mas'>+</span> Crear usuario</button>
+      </div>
+      <div className={`app_confirmation__card ${isConfirmation && 'form_close'}`}>
+      <ConfirmationCard
+        setIsConfirmation={setIsConfirmation}
+        userDelete={userDelete}
+      />
+      </div>
+      <div onClick={handleClickclose} className={`background_form ${isFormClose && 'form_close'}`}></div>
       <div className={`form_container ${isFormClose && 'form_close'}`}>
         <FormUser
           createUser={createUser}
@@ -33,7 +51,7 @@ function App() {
           setIsFormClose={setIsFormClose}
         />
       </div>
-      <div>
+      <div className='container_userCard'>
         {
           users?.map(user => (
             <UserCard
@@ -41,6 +59,9 @@ function App() {
               user={user}
               deleteUser={deleteUser}
               setUserUpdate={setUserUpdate}
+              setIsFormClose={setIsFormClose}
+              setUserDelete={setUserDelete}
+              setIsConfirmation={setIsConfirmation}
             />
           ))
         }
