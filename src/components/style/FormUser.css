@@ -72,24 +72,24 @@
 .form_btn {
     position: relative;
     padding: 15px 45px;
-    background: #fec195;
+    background: #95dffe9c;
     font-size: 17px;
     font-weight: 500;
     color: #181818;
     cursor: pointer;
-    border: 1px solid #fec195;
+    border: 1px solid #95e6fe92;
     border-radius: 8px;
     filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.2));
 }
 
 .form_btn:hover {
-    border: 1px solid #f3b182;
+    border: 1px solid #fabd92;
     background: linear-gradient(85deg,
-            #fec195,
-            #fcc196,
             #fabd92,
-            #fac097,
-            #fac39c);
+            #fabd92,
+            #fabd92,
+            #fabd92,
+            #fabd92);
     animation: wind 2s ease-in-out infinite;
 }
 
