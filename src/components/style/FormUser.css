@@ -64,10 +64,6 @@
     color: white;
 }
 
-.form_btn:hover {
-    filter: brightness(1.2);
-}
-
 
 .form_btn {
     position: relative;

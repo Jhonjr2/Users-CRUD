@@ -136,3 +136,11 @@
     gap: 1em;
     padding: 30px;
 }
+
+.app_container_EmptyUser {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1em;
+}
